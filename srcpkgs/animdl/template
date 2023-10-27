@@ -1,0 +1,22 @@
+# Template file for 'animdl'
+pkgname=animdl
+version=1.7.27
+revision=1
+#archs="i686 x86_64"
+#build_wrksrc=
+build_style=python3-pep517
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python3-poetry-core"
+#makedepends=""
+depends="python3 python3-anchor-kr python3-anitopy python3-click python3-comtypes python3-cssselect python3-httpx python3-packaging python3-pkginfo python3-pycryptodomex python3-regex python3-rich python3-tqdm python3-yaml python3-yarl"
+short_desc="Anime downloader and streamer"
+maintainer="goiabae <goiabae@protonmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/justfoolingaround/animdl"
+#changelog=""
+distfiles="${PYPI_SITE}/a/animdl/animdl-1.7.27.tar.gz"
+checksum=fd97b278da4c82da88759993eaf6d8ad6fc3660d0f03de5b2151279c4ebd8370
