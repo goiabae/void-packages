@@ -1,0 +1,22 @@
+# Template file for 'python3-anitopy'
+pkgname=python3-anitopy
+version=2.1.1
+revision=1
+#archs="i686 x86_64"
+#build_wrksrc=
+build_style=python3-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python3-setuptools"
+#makedepends=""
+depends="python3 python-enum34"
+short_desc="Anime video filename parser based on Anitomy"
+maintainer="goiabae <goiabae@protonmail.com>"
+license="MPL-2.0"
+homepage="https://github.com/igorcmoura/anitopy"
+changelog="https://github.com/igorcmoura/anitopy/raw/master/CHANGELOG.md"
+distfiles="${PYPI_SITE}/a/anitopy/anitopy-${version}.tar.gz"
+checksum=515b97cd78917ee406313f4eb53bdc75e8a573e6ad5252ffd355c96a06988e26
