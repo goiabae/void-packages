@@ -1,0 +1,39 @@
+# Template file for 'clamtk'
+pkgname=clamtk
+version=6.16
+revision=1
+#archs="i686 x86_64"
+#build_wrksrc=
+build_style=meta
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends=""
+depends="clamav perl perl-Gtk3 perl-HTTP-Message perl-JSON perl-LWP perl-LWP-Protocol-https perl-Text-CSV" # perl-Locale-gettext fails fetching
+short_desc="GTK frontend for ClamAV"
+maintainer="goiabae <goiabae@protonmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://gitlab.com/dave_m/${pkgname}/wikis/home"
+#changelog=""
+distfiles="https://github.com/dave-theunsub/${pkgname}/archive/refs/tags/v${version}.tar.gz"
+checksum=dc79b02835b7ebe428d088b2c15d0560271f81d0b0950114a12f9b9bfe77c807
+
+
+do_install() {
+		vdoc CHANGES
+		vdoc DISCLAIMER.md
+		vlicense LICENSE
+		vdoc README.md
+		vbin clamtk
+		vman clamtk.1.gz
+		vinstall clamtk.desktop 644 usr/share/applications
+		vdoc credits.md
+		vinstall images/clamtk.png 644 usr/share/icons/hicolor/128x128/apps
+		# for now clamtk_300x300.png is ignored
+		vinstall images/clamtk.xpm 644 usr/share/pixmaps
+		vmkdir usr/share/perl5/vendor_perl/ClamTk
+		vcopy lib/*.pm usr/share/perl5/vendor_perl/ClamTk
+}
