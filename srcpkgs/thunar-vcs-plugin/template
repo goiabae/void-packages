@@ -1,0 +1,22 @@
+# Template file for 'thunar-vcs-plugin'
+pkgname=thunar-vcs-plugin
+version=0.2.0
+revision=1
+build_style=gnu-configure
+configure_args="--with-locales-dir=/usr/share/locale $(vopt_enable git) $(vopt_enable subversion)"
+hostmakedepends="intltool pkg-config"
+makedepends="Thunar-devel exo-devel gtk+3-devel $(vopt_if subversion apr-util-devel) $(vopt_if subversion subversion-devel)"
+depends="$(vopt_if git git)"
+short_desc="Adds Subversion and GIT actions to the context menu of Thunar"
+maintainer="goiabae <goiabae@protonmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://goodies.xfce.org/projects/thunar-plugins/${pkgname}"
+changelog="https://gitlab.xfce.org/thunar-plugins/${pkgname}/-/raw/master/NEWS"
+distfiles="https://archive.xfce.org/src/thunar-plugins/${pkgname}/${version%.*}/${pkgname}-${version}.tar.bz2"
+checksum=368916d4c3d40862bf7cd1b3000c801c7db801ec88a236f1d8dd44ef780b4db8
+
+build_options="git subversion"
+build_options_default="git subversion"
+
+desc_option_git="Enable support for GIT actions"
+desc_option_subversion="Enable support for Subversion actions"
