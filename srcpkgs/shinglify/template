@@ -1,0 +1,27 @@
+# Template file for 'shinglify'
+pkgname=shinglify
+version=0.4.7
+revision=1
+build_style=go
+go_import_path="gitlab.com/corthbandt/${pkgname}"
+go_package="${go_import_path}/shin"
+short_desc="Automatic window tiling, window tagging and full keyboard navigation for Linux desktop environments"
+maintainer="goiabae <goiabae@protonmail.com>"
+license="MIT"
+homepage="https://gitlab.com/corthbandt/${pkgname}/"
+changelog="https://gitlab.com/corthbandt/${pkgname}/-/raw/main/CHANGELOG.md"
+distfiles="https://gitlab.com/corthbandt/${pkgname}/-/archive/v${version}/shinglify-v${version}.tar.gz"
+checksum=f573eb29b3096906ff56b66ad70982b45173a896f8f77d57f3caadd01fea06f5
+
+# this moves ${wrksrc}/cmd/cmd.go to ${wrksrc}/shin/main.go
+# so that we can build module with just the name shin
+pre_build() {
+		mv cmd shin
+		mv shin/cmd.go shin/main.go
+}
+
+post_install() {
+	vlicense LICENSE
+	vdoc README.md CHANGELOG.md
+	vconf shinglify.lua
+}
