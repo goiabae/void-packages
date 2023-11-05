@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=nohang
+Comment=Sophisticated low memory handler for Linux
+Exec=/usr/bin/nohang --monitor --config /etc/nohang/nohang-desktop.conf
+Terminal=false

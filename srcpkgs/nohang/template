@@ -1,0 +1,27 @@
+# Template file for 'nohang'
+pkgname=nohang
+version=0.2.0
+revision=1
+#archs="i686 x86_64"
+#build_wrksrc=
+build_style=gnu-makefile
+#configure_args=""
+make_install_args="SBINDIR=/usr/bin SYSCONFDIR=/etc"
+make_install_target="base"
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+#hostmakedepends=""
+#makedepends=""
+depends="python3 libnotify sudo"
+short_desc="Sophisticated low memory handler for Linux"
+maintainer="goiabae <goiabae@protonmail.com>"
+license="MIT"
+homepage="https://github.com/hakavlad/nohang"
+changelog="https://github.com/hakavlad/nohang/raw/v${version}/CHANGELOG.md"
+distfiles="https://github.com/hakavlad/nohang/archive/refs/tags/v${version}.tar.gz"
+checksum=2e2bafc547d620481b16cedeef55fbc4b82b803228bf27b8a57c14c6dcb8812e
+
+post_install() {
+	vinstall ${FILESDIR}/nohang.desktop 644 usr/share/applications
+	vlicense LICENSE
+}
